@@ -16,7 +16,7 @@
 }
 
 .heroes li:hover {
-  color: #607D8B;
+  color: rgb(0, 114, 172);
   background-color: #DDD;
   left: .1em;
 }
@@ -38,7 +38,7 @@
   font-size: small;
   color: white;
   padding: 0.8em 0.7em 0 0.7em;
-  background-color:#405061;
+  background-color:rgb(0, 114, 172);
   line-height: 1em;
   position: relative;
   left: -1px;
@@ -68,6 +68,6 @@ button.delete {
   position: relative;
   left: 194px;
   top: -32px;
-  background-color: gray !important;
+  background-color: darkred !important;
   color: white;
 }

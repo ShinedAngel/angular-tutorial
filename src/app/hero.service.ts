@@ -25,7 +25,7 @@ export class HeroService {
   getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
-        tap(_ => this.log('HeroiBuscado')),
+        tap(_ => this.log('...')),
         catchError(this.handleError<Hero[]>('getHeroes', []))
       );
   }
@@ -48,7 +48,7 @@ export class HeroService {
   getHero(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
     return this.http.get<Hero>(url).pipe(
-      tap(_ => this.log(`HeroiBuscado código:${id}`)),
+      tap(_ => this.log(`Código da flor:${id}`)),
       catchError(this.handleError<Hero>(`getHero id:${id}`))
     );
   }
@@ -70,7 +70,7 @@ export class HeroService {
   /** POST: add a new hero to the server */
   addHero(hero: Hero): Observable<Hero> {
     return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
+      tap((newHero: Hero) => this.log(`Flor id=${newHero.id} adicionada`)),
       catchError(this.handleError<Hero>('addHero'))
     );
   }
@@ -81,7 +81,7 @@ export class HeroService {
     const url = `${this.heroesUrl}/${id}`;
 
     return this.http.delete<Hero>(url, this.httpOptions).pipe(
-      tap(_ => this.log(`deleted hero id=${id}`)),
+      tap(_ => this.log(`Flor id=${id} removida`)),
       catchError(this.handleError<Hero>('deleteHero'))
     );
   }
@@ -89,7 +89,7 @@ export class HeroService {
   /** PUT: update the hero on the server */
   updateHero(hero: Hero): Observable<any> {
     return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap(_ => this.log(`updated hero id=${hero.id}`)),
+      tap(_ => this.log(`Flor id=${hero.id} atualizada`)),
       catchError(this.handleError<any>('updateHero'))
     );
   }
@@ -116,6 +116,6 @@ export class HeroService {
 
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
-    this.messageService.add(`ServicoHerois: ${message}`);
+    this.messageService.add(`floresDiz: ${message}`);
   }
 }
